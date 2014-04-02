@@ -1,0 +1,15 @@
+if [[ $1 = "" ]]; then
+  echo "No argument supplied
+Available commands are: hserv start | stop"
+elif [[ $1 = "start" ]]; then
+    echo "Starting servers..."
+    screen -dmS hserv -c $HOME/bin/hserv.conf
+    echo "Hserv started"
+ elif [[ $1 = "stop" ]]; then
+    screen -X -S hserv quit
+    echo "Hserv stopped
+hivelocity-shared may still be running"
+else
+  echo "Unknown argument supplied
+Available commands are: hserv start | stop"
+fi
