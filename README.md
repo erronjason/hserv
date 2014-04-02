@@ -16,7 +16,7 @@ server {
 		if ($host = 'www') {
 			proxy_pass http://127.0.0.1:5040;
 		}
-		if ($host = 'my') {
+		if ($host = 'myv') {
 			proxy_pass http://127.0.0.1:5045;
 		}
 		if ($host = 'intranet') {
