@@ -42,4 +42,4 @@ export PATH=$PATH:$HOME/bin/
 ```
 
 ###Usage:
-hserv start | stop
+hserv (start | stop)
