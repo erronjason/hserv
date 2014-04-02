@@ -32,7 +32,7 @@ server {
 ####Append to localhost line in /etc/hosts:
 
 ```
-127.0.0.1 intranet my store www
+127.0.0.1 intranet myv store www
 ```
 
 ####Append to .bashrc:
