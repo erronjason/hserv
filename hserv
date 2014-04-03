@@ -1,15 +1,21 @@
 if [[ $1 = "" ]]; then
   echo "No argument supplied
-Available commands are: hserv (start | stop)"
+Available commands are: hserv (start | stop | shutdown)"
 elif [[ $1 = "start" ]]; then
     echo "Starting servers..."
     screen -dmS hserv -c $HOME/bin/hserv.conf
     echo "Hserv started"
- elif [[ $1 = "stop" ]]; then
-    screen -X -S hserv quit
-    echo "Hserv stopped
-hivelocity-shared may still be running"
+elif [[ $1 = "stop" ]]; then
+  screen -X -S hserv quit
+  echo "Hserv stopped
+hivelocity-shared may still be running
+Please use 'hserv shutdown' to halt it"
+elif [[ $1 = "shutdown" ]]; then
+  cd ~/projects/hivelocity-shared
+  vagrant halt
+  cd
+  echo "Hivelocity-shared VM has been shutdown"
 else
   echo "Unknown argument supplied
-Available commands are: hserv (start | stop)"
+Available commands are: hserv (start | stop | shutdown)"
 fi
