@@ -1,9 +1,10 @@
 if [[ $1 = "" ]]; then
   echo "No argument supplied
-Available commands are: hserv (start | stop | shutdown)"
+Usage: hserv (console | shutdown | start | stop)"
 elif [[ $1 = "start" ]]; then
+    DIR="$( cd "$( dirname "$0" )" && pwd )"
     echo "Starting servers..."
-    screen -dmS hserv -c $HOME/bin/hserv.conf
+    screen -dmS hserv -c $DIR/hserv.conf
     echo "Hserv started"
 elif [[ $1 = "stop" ]]; then
   screen -X -S hserv quit
@@ -15,7 +16,11 @@ elif [[ $1 = "shutdown" ]]; then
   vagrant halt
   cd
   echo "Hivelocity-shared VM has been shutdown"
+elif [[ $1 = "console" ]]; then
+  screen -x hserv
+elif [[ $1 = "--help" ]]; then
+  echo "manpage"
 else
   echo "Unknown argument supplied
-Available commands are: hserv (start | stop | shutdown)"
+Usage: hserv (console | shutdown | start | stop)"
 fi
