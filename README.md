@@ -42,4 +42,6 @@ export PATH=$PATH:$HOME/bin/
 ```
 
 ###Usage:
-hserv (start | stop | shutdown)
+(console | shutdown | start | stop)
+
+Use "hserv start" to start the vagrant VM and all projects, then "hserv console" to attach to the associated screen session. Using "ctrl+a" then "n" will allow you to cycle though the windows, and "ctrl+a" then "d" will detach you from the session. "hserv stop" closes the screen session and all python servers, but not the vagrant vm. To shut down the vagrant vm, use "hserv shutdown".
